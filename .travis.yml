@@ -1,6 +1,10 @@
 language: node_js
 node_js:
   - "stable"
+  
+before_script:
+  - cd app
+
 script:
   - npm install
   - npm run build
