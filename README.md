@@ -2,7 +2,7 @@
 
 La idea de este proyecto es brindar una mejor UI/UX en la generacion de los archivos ambientes.json
 
-## ["Formato de ejemplo del archivo ambientes.json](https://github.com/cassa10/generador-ambientes-json/blob/master/example-ambientes.json)
+## [Formato de ejemplo del archivo "ambientes.json"](https://github.com/cassa10/generador-ambientes-json/blob/master/example-ambientes.json)
 
 ## Funcionalidades a desarrollar:
 
