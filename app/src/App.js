@@ -1,16 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
+import {Route, Switch, BrowserRouter} from 'react-router-dom';
+import HomePage from './views/HomePage';
+import GraphPage from './views/GraphPage';
+import NavBar from './components/NavBar';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Building UI...
-        </p>
-      </header>
+      <BrowserRouter>
+        <NavBar />
+        <Switch>
+          <Route exact path="/" component={HomePage}/>
+          <Route path="/graph" component={GraphPage}/>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
