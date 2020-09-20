@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FlowGraph, {Background, Controls} from 'react-flow-renderer';
+import FlowGraph, {Controls} from 'react-flow-renderer';
 
 const Graph = ({graphProps, isDraggable}) => {
 
@@ -13,9 +13,6 @@ const Graph = ({graphProps, isDraggable}) => {
     const nextAxisY = (distance) => {
         axisY = axisY + distance;
         return axisY;
-    }
-    const nextAxisX = (distance) => {
-        return axisX + 50;
     }
 
     let id = 0;

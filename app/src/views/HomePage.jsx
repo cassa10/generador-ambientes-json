@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Container, Grid} from "@material-ui/core";
+import React from 'react';
+import {Container} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import {useHistory} from "react-router-dom";
 import {goToGraphPage} from "../utils/navFunctions";
@@ -8,9 +8,6 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
     grid: {
         marginTop: "45px",
-        backgroundColor: "#0eacd4",
-        borderLeft: "10px solid #017787",
-        borderRight: "10px solid #017787",
         backgroundColor: "#0eacd4",
         borderLeft: "10px solid #017787",
         borderRight: "10px solid #017787",
