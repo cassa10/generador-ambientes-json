@@ -7,11 +7,9 @@ import * as serviceWorker from './serviceWorker';
 import theme from "./assets/theme";
 
 ReactDOM.render(
-  <React.StrictMode>
     <ThemeProvider theme={theme}>
       <App />
-    </ThemeProvider>
-  </React.StrictMode>,
+    </ThemeProvider>,
   document.getElementById('root')
 );
 
