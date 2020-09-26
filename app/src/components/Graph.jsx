@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FlowGraph, {Controls} from 'react-flow-renderer';
 
-const Graph = ({graphProps, isDraggable}) => {
+const Graph = ({serversToGraph, isDraggable}) => {
 
     const axisX = 510;
     
@@ -65,7 +65,39 @@ const Graph = ({graphProps, isDraggable}) => {
     const buildMultipleConnectionSourceToTargets = (source,targets,animated = false) =>
         targets.map(t => buildConnection(source,t,animated));
 
-    const elements = [
+    const mapToFlowGraph = (servers) => {
+    
+        const start = { 
+            id: 'start',
+            type: 'input',
+            draggable: isDraggable,
+            data: {label: "Start"},
+            position: { x: axisX, y: axisY},
+            style: {color: 'black'}
+        };
+    
+        const serversAndConnections = []
+        /*servers.map( server => {
+            
+        });
+        */
+        const finish = { 
+            id: 'finish',
+            type: 'input',
+            draggable: isDraggable,
+            data: {label: "Finish"},
+            position: { x: axisX, y: nextAxisY(difAxisY)}
+        };
+    
+        return [
+            start,
+            ...serversAndConnections,
+            finish
+        ];
+    };
+
+    const elements = mapToFlowGraph(serversToGraph);
+    /*[
         { 
             id: 'start',
             type: 'input',
@@ -96,6 +128,7 @@ const Graph = ({graphProps, isDraggable}) => {
         ...buildMultipleConnectionSourcesToTarget(['11','12','13'],'14'),
         buildConnection('14','finish'),
     ];
+    */
 
     const graphStyles = { width: '100%', height: '800px', border: '1px solid black', margin: '7px', };
 
@@ -114,7 +147,7 @@ const Graph = ({graphProps, isDraggable}) => {
 };
 
 Graph.propTypes = {
-    graphProps: PropTypes.array.isRequired
+    serversToGraph: PropTypes.array.isRequired
 };
 
 export default Graph;

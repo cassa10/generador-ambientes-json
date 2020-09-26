@@ -1,5 +1,11 @@
 export const ambientesJSON = `
-{
+{   
+    "ambienteBuild": {
+        "nombre":"Ambiente-BUILD", 
+        "dryRun": false,
+        "enabled": true,
+        "os": "linux"
+    },
     "ambientesDeploy": [
         {
             "nombre":"Ambientes-1", 
