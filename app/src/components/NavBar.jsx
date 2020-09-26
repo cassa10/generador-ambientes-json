@@ -25,7 +25,7 @@ const NavBar = () => {
                     className={classes.img}
                     src={Logo}
                     alt="logo"
-                    onClick={goToHomePage(push)}
+                    onClick={() => goToHomePage(push)}
                 />
             </Toolbar>
         </AppBar>
