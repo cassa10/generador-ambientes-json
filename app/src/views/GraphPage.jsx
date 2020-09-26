@@ -9,7 +9,7 @@ import {parseServersJSON} from "../utils/parser";
 const GraphPage = () => {
     let {push} = useHistory();
 
-    let servers = parseServersJSON(useLocation().state)
+    let servers = parseServersJSON(useLocation().state);
     
     useEffect(() => {
         //Redirect to home if servers equals to undefined

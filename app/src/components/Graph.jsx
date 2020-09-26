@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
 import FlowGraph, {Controls} from 'react-flow-renderer';
@@ -29,7 +30,7 @@ const Graph = ({serversToGraph, isDraggable}) => {
 
     const getType = (enabled) => enabled?"output":"default";
 
-    const buildServer = (enabled, dataLabel, axisX, axisY) => ({
+    const buildServerGraph = (enabled, dataLabel, axisX, axisY) => ({
         id: nextId(),
         type: getType(enabled),
         draggable: isDraggable,
@@ -37,9 +38,8 @@ const Graph = ({serversToGraph, isDraggable}) => {
         position: { x: axisX, y: axisY},
     })
 
-    // eslint-disable-next-line
-    const buildConcurrentServers = (enabled, serversNameContainer, listServers) => {
-        const containerServer = buildServer(enabled, serversNameContainer, axisX, nextAxisY(difAxisY));
+    const buildConcurrentServersGraph = (enabled, serversNameContainer, listServers) => {
+        const containerServer = buildServerGraph(enabled, serversNameContainer, axisX, nextAxisY(difAxisY));
 
         const concurrentAxisY = nextAxisY(difAxisY - 20);
 
@@ -47,7 +47,7 @@ const Graph = ({serversToGraph, isDraggable}) => {
         let distanceSvX = 180;
         const ys = listServers.map(server => {
             svAxisX = svAxisX + distanceSvX;
-            return buildServer(enabled && server.enabled, server.name, svAxisX, concurrentAxisY)
+            return buildServerGraph(enabled && server.enabled, server.nombre, svAxisX, concurrentAxisY)
         })
         
         return [containerServer, ...ys]
@@ -60,13 +60,26 @@ const Graph = ({serversToGraph, isDraggable}) => {
         animated: animated
     });
 
-     // eslint-disable-next-line
     const buildMultipleConnectionSourcesToTarget = (sources,target,animated = false) =>
         sources.map(s => buildConnection(s,target,animated));
 
-    // eslint-disable-next-line
+
     const buildMultipleConnectionSourceToTargets = (source,targets,animated = false) =>
         targets.map(t => buildConnection(source,t,animated));
+
+    
+    const parseToGraph = (server) => {
+        const preDeployItems = server.preDeploy ? server.preDeploy.map((svPreDeploy) => {}) : [];
+
+        const mainServerItem = buildServerGraph(server.enabled, server.nombre, axisX, nextAxisY(difAxisY));
+        const postDeployItems = server.postDeploy ? server.postDeploy.map((svPostDeploy) => {}) : [];
+        const concurrentItem = 
+            server.servidoresDeployParalelos
+                ? buildConcurrentServersGraph(true, server.nombre, server.servidoresDeployParalelos)
+                : []
+
+        return [];
+    };
 
     const mapToFlowGraph = (servers) => {
     
@@ -79,11 +92,8 @@ const Graph = ({serversToGraph, isDraggable}) => {
             style: {color: 'black'}
         };
     
-        const serversAndConnections = []
-        /*servers.map( server => {
-            
-        });
-        */
+        const serversAndConnections = []//servers.map(parseToGraph);
+        
         const finish = { 
             id: 'finish',
             type: 'input',
