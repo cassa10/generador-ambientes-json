@@ -37,6 +37,7 @@ const Graph = ({serversToGraph, isDraggable}) => {
         position: { x: axisX, y: axisY},
     })
 
+    // eslint-disable-next-line
     const buildConcurrentServers = (enabled, serversNameContainer, listServers) => {
         const containerServer = buildServer(enabled, serversNameContainer, axisX, nextAxisY(difAxisY));
 
@@ -59,9 +60,11 @@ const Graph = ({serversToGraph, isDraggable}) => {
         animated: animated
     });
 
+     // eslint-disable-next-line
     const buildMultipleConnectionSourcesToTarget = (sources,target,animated = false) =>
         sources.map(s => buildConnection(s,target,animated));
 
+    // eslint-disable-next-line
     const buildMultipleConnectionSourceToTargets = (source,targets,animated = false) =>
         targets.map(t => buildConnection(source,t,animated));
 
