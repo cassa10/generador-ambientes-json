@@ -11,8 +11,42 @@ export const ambientesJSON = `
             "nombre":"Ambientes-1", 
             "dryRun": false,
             "enabled": true,
-            "preDeploy":[],
-            "postDeploy":[],
+            "preDeploy":[
+                {
+                    "nombre": "Ambiente-1-PreDeploy-I",
+                    "host": "10.76.28.133",
+                    "path": "/home/z001534/bd-loader3",
+                    "os": "linux",
+                    "dryRun": false,
+                    "enabled": true
+                },
+                {
+                    "nombre": "Ambiente-1-PreDeploy-II",
+                    "host": "10.76.28.133",
+                    "path": "/home/z001534/bd-loader3",
+                    "os": "linux",
+                    "dryRun": false,
+                    "enabled": false
+                }
+            ],
+            "postDeploy":[
+                {
+                    "nombre": "Ambiente-1-PostDeploy-I",
+                    "host": "10.76.28.133",
+                    "path": "/home/z001534/bd-loader3",
+                    "os": "linux",
+                    "dryRun": false,
+                    "enabled": false
+                },
+                {
+                    "nombre": "Ambiente-1-PostDeploy-II",
+                    "host": "10.76.28.133",
+                    "path": "/home/z001534/bd-loader3",
+                    "os": "linux",
+                    "dryRun": false,
+                    "enabled": true
+                }
+            ],
             "servidoresDeployParalelos":[
                 {
                     "nombre": "Ambientes-1.A",

@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import {Container, Dialog, DialogTitle, Typography, DialogContent, DialogActions } from "@material-ui/core";
-import Button from "@material-ui/core/Button";
+import {Container, Dialog, DialogTitle, Typography, DialogContent, DialogActions, Button } from "@material-ui/core";
 import {useHistory} from "react-router-dom";
 import {goToGraphPage} from "../utils/navFunctions";
 import { makeStyles } from "@material-ui/core/styles";
